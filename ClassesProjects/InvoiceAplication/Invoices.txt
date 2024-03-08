@@ -1,0 +1,7 @@
+﻿Name;Price;Category
+Bread;1000;Food
+Sushi;2000;Food
+Lego;2500;Toys
+Pizza;100;Food
+New laptop;50000;Equipment
+A model car;400;Toys
