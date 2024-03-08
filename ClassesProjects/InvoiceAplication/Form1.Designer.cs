@@ -51,7 +51,7 @@ namespace InvoiceAplication
             this.pathTextBox.Name = "pathTextBox";
             this.pathTextBox.Size = new System.Drawing.Size(730, 23);
             this.pathTextBox.TabIndex = 1;
-            this.pathTextBox.Text = "C:\\Users\\mjagiela\\Desktop\\Invoices.txt";
+            this.pathTextBox.Text = "Invoices.txt";
             // 
             // readButton
             // 
