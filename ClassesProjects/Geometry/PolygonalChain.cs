@@ -4,18 +4,15 @@
     {
         private List<Point> _midpoints = new List<Point>();
 
-        public List<Point> Midpoints => _midpoints.Select(x=>x).ToList();
-
         public PolygonalChain(Point start, Point end) : base(start, end) { }
+
+        public List<Point> Midpoints => _midpoints.Select(x=>x).ToList();
 
         public void AddMidpoint(Point midpoint)
         {
-            var allPoints = new List<Point>();
-            allPoints.Add(_start);
-            allPoints.AddRange(_midpoints);
-            allPoints.Add(_end);
+            var allPoints = _getAllPoints();
 
-            if (allPoints.Any(x=>x.X == midpoint.X && x.Y == midpoint.Y))
+            if (allPoints.Any(x => x.X == midpoint.X && x.Y == midpoint.Y))
                 throw new ArgumentException("The midpoint already exists");
 
             _midpoints.Add(midpoint);
@@ -34,10 +31,7 @@
         {
             get
             {
-                var allPoints = new List<Point>();
-                allPoints.Add(_start);
-                allPoints.AddRange(_midpoints);
-                allPoints.Add(_end);
+                var allPoints = _getAllPoints();
 
                 var totalLength = 0.0;
                 for (int i = 0; i < allPoints.Count - 1; i++)
@@ -49,6 +43,17 @@
 
                 return totalLength;
             }
+        }
+
+        private List<Point> _getAllPoints()
+        {
+            var allPoints = new List<Point>();
+
+            allPoints.Add(_start);
+            allPoints.AddRange(_midpoints);
+            allPoints.Add(_end);
+
+            return allPoints;
         }
     }
 }
