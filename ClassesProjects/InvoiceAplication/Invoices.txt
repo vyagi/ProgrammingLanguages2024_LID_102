@@ -5,3 +5,5 @@ Lego;2500;Toys
 Pizza;100;Food
 New laptop;50000;Equipment
 A model car;400;Toys
+Bread;2000;Food
+Pizza;100;Food

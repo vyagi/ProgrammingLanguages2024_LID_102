@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceAplication", "Invoic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceApplication.BusinessLogic", "InvoiceApplication.BusinessLogic\InvoiceApplication.BusinessLogic.csproj", "{2ABBA57B-56D9-4F35-9423-DC5B42F74150}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceApplication.BusinessLogic.Tests", "InvoiceApplication.BusinessLogic.Tests\InvoiceApplication.BusinessLogic.Tests.csproj", "{09B6963A-CF59-48CB-8BCD-1AD2BF469A51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2ABBA57B-56D9-4F35-9423-DC5B42F74150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ABBA57B-56D9-4F35-9423-DC5B42F74150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ABBA57B-56D9-4F35-9423-DC5B42F74150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B6963A-CF59-48CB-8BCD-1AD2BF469A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B6963A-CF59-48CB-8BCD-1AD2BF469A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B6963A-CF59-48CB-8BCD-1AD2BF469A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B6963A-CF59-48CB-8BCD-1AD2BF469A51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
