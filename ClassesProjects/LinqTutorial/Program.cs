@@ -42,8 +42,8 @@ foreach (var collection in groupedByNumberOfHobbies)
 
 Console.WriteLine("******************");
 
-var byAge = persons.GroupBy(x => x.Age / 10);
-foreach (var collection in byAge.OrderBy(x => x.Key))
+var byAge = persons.GroupBy(x => x.Age / 10).OrderBy(x=>x.Key);
+foreach (var collection in byAge)
 {
     Console.WriteLine(collection.Key * 10);
     foreach (var item in collection)
