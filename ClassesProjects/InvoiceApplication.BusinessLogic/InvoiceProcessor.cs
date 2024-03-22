@@ -23,7 +23,7 @@
 
     public class InvoiceProcessor
     {
-        public List<(string, decimal)> GroupByCategories(List<string> invoices) => invoices
+        public List<(string Category, decimal Amount)> GroupByCategories(List<string> invoices) => invoices
                 .Skip(1)
                 .Select(x => Invoice.FromString(x))
                 .GroupBy(x => x.Category)

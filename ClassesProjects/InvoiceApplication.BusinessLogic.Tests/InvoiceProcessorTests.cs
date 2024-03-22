@@ -23,14 +23,14 @@ namespace InvoiceApplication.BusinessLogic.Tests
 
             var categories = invoiceProcessor.GroupByCategories(invoices);
 
-            categories.First().Item1.Should().Be("Food");
-            categories.First().Item2.Should().Be(3100M);
+            categories.First().Category.Should().Be("Food");
+            categories.First().Amount.Should().Be(3100M);
 
-            categories.Second().Item1.Should().Be("Toys");
-            categories.Second().Item2.Should().Be(2900M);
+            categories.Second().Category.Should().Be("Toys");
+            categories.Second().Amount.Should().Be(2900M);
 
-            categories.Third().Item1.Should().Be("Equipment");
-            categories.Third().Item2.Should().Be(50000M);
+            categories.Third().Category.Should().Be("Equipment");
+            categories.Third().Amount.Should().Be(50000M);
         }
     }
 }

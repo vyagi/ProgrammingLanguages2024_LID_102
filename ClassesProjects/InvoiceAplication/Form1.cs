@@ -35,7 +35,7 @@ namespace InvoiceAplication
             resultTextBox.Text += "Category\tAmount\r\n"; //avoid using \r\n
             foreach (var entry in entries)
             {
-                resultTextBox.Text += $"{entry.Item1}\t{entry.Item2}{Environment.NewLine}";
+                resultTextBox.Text += $"{entry.Category}\t{entry.Amount}{Environment.NewLine}";
             }
         }
     }
