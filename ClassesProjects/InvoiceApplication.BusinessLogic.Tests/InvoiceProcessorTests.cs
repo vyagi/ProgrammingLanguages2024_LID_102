@@ -1,6 +1,5 @@
 using FluentAssertions;
-using System.Diagnostics;
-using System.Xml.Linq;
+using InvoiceApplication.BusinessLogic.Tests.Extensions;
 
 namespace InvoiceApplication.BusinessLogic.Tests
 {
@@ -27,11 +26,11 @@ namespace InvoiceApplication.BusinessLogic.Tests
             categories.First().Item1.Should().Be("Food");
             categories.First().Item2.Should().Be(3100M);
 
-            categories.Skip(1).First().Item1.Should().Be("Toys");
-            categories.Skip(1).First().Item2.Should().Be(2900M);
+            categories.Second().Item1.Should().Be("Toys");
+            categories.Second().Item2.Should().Be(2900M);
 
-            categories.Skip(2).First().Item1.Should().Be("Equipment");
-            categories.Skip(2).First().Item2.Should().Be(50000M);
+            categories.Third().Item1.Should().Be("Equipment");
+            categories.Third().Item2.Should().Be(50000M);
         }
     }
 }

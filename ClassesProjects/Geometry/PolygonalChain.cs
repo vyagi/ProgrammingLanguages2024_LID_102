@@ -1,6 +1,9 @@
-﻿namespace Geometry
+﻿using System.Collections;
+using System.Runtime.CompilerServices;
+
+namespace Geometry
 {
-    public class PolygonalChain : Segment, IMoveable
+    public class PolygonalChain : Segment, IMoveable, IEnumerable<Point>
     {
         private List<Point> _midpoints = new List<Point>();
 
@@ -54,6 +57,31 @@
             allPoints.Add(_end);
 
             return allPoints;
+        }
+
+        public IEnumerator<Point> GetEnumerator()
+        {
+            var startTime = DateTime.Now;
+            Console.WriteLine($"The enumerator {new Random().Next(100)} was called at {startTime}");
+
+            Console.WriteLine("It will now return _start");
+            yield return _start;
+            
+            Console.WriteLine("Start was returned. Now it will now return Midpoints");
+
+            foreach (var midpoint in Midpoints)
+                yield return midpoint;
+
+            Console.WriteLine("Midpoints were returned. Now it will now return _end");
+
+            yield return _end;
+
+            Console.WriteLine("Everything was returned");
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
