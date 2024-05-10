@@ -9,6 +9,8 @@
 //    Console.WriteLine(item);
 //}
 
+using System.Reflection.Metadata.Ecma335;
+
 var persons = new Person[] {
     new Person(1, "James", "Bond", 58, new [] { "Spying", "Women", "Cars" }),
     new Person(2, "Kirk", "Hammett", 55, new [] { "Guitar", "Comic books", "Horrors" }),
@@ -29,29 +31,48 @@ var addresses = new Address[] {
     new Address(100, -1, "Sun", "Gas", TypeOfAddress.Temporary),
 };
 
-var groupedByNumberOfHobbies = persons.GroupBy(x => x.Hobbies.Length);
+var query = from person in persons
+            where person.Age < 70
+            orderby person.Hobbies.Count() descending
+            select $"{person.FirstName}";
 
-foreach (var collection in groupedByNumberOfHobbies)
-{
-    Console.WriteLine(collection.Key);
-    foreach (var item in collection)
-    {
-        Console.WriteLine(item.FirstName + " " + item.LastName);
-    }
-}
+var crappySyntaxJoin = from person in persons
+               from address in addresses
+               where person.Id == address.PersonId
+               select new { Person = person, Address = address };
 
-Console.WriteLine("******************");
+//works like inner join
+var properJoin = from person in persons 
+                join address in addresses 
+                on person.Id equals address.PersonId
+                select new { Person = person, Address = address };
 
-var byAge = persons.GroupBy(x => x.Age / 10).OrderBy(x=>x.Key);
-foreach (var collection in byAge)
-{
-    Console.WriteLine(collection.Key * 10);
-    foreach (var item in collection)
-    {
-        Console.WriteLine(item.FirstName + " " + item.LastName);
-    }
-}
 
-enum TypeOfAddress { Home, Mail, Temporary }
-record Person(int Id, string FirstName, string LastName, int Age, string[] Hobbies);
-record Address(int Id, int PersonId, string City, string Street, TypeOfAddress AddressType);
+
+public enum TypeOfAddress { Home, Mail, Temporary }
+public record Person(int Id, string FirstName, string LastName, int Age, string[] Hobbies);
+public record Address(int Id, int PersonId, string City, string Street, TypeOfAddress AddressType);
+
+
+//var groupedByNumberOfHobbies = persons.GroupBy(x => x.Hobbies.Length);
+
+//foreach (var collection in groupedByNumberOfHobbies)
+//{
+//    Console.WriteLine(collection.Key);
+//    foreach (var item in collection)
+//    {
+//        Console.WriteLine(item.FirstName + " " + item.LastName);
+//    }
+//}
+
+//Console.WriteLine("******************");
+
+//var byAge = persons.GroupBy(x => x.Age / 10).OrderBy(x=>x.Key);
+//foreach (var collection in byAge)
+//{
+//    Console.WriteLine(collection.Key * 10);
+//    foreach (var item in collection)
+//    {
+//        Console.WriteLine(item.FirstName + " " + item.LastName);
+//    }
+//}
